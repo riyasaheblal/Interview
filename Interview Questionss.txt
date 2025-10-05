@@ -1,0 +1,734 @@
+1.How to take a thread dump in a process, and why we take thread dumps.
+kill -3 <PID>
+
+2.Explain the the steps we would perform when the application is not responding / stuck / ha
+ng.
+logs 
+cpu usage
+
+3.We have a csv file
+student_id, student_name, student_dob
+1, Bob, 2020-01-05
+2, Alice, 2020-01-31
+Parse this file store in memory (any data structure you want)
+As you cover various scenarios below, ask candidate to suggest the collection / data structure. Do not
+prompt them or give choices.
+
+4.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+OOPS Concepts:
+Design entities and behavior for File System. Expose a method to calculate the size of the any entity in
+the file system. You are expected to give interfaces, classes, hierarchy between classes.
+Evaluation : Identified the right entities/interfaces and relation between them?
+Candidate Knows about Association and Delegation 
+Explained the isA and hasA relationship?
+
+5.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Write a Java program to print a sequence of numbers up to N using 3 threads.
+For example, if we want to print a sequence of numbers up to 10 then it’ll look like this:
+static int N=10;
+static int count=1;
+static Object lock=new Object();
+THREAD-1 : 1
+THREAD-2 : 2
+THREAD-3 : 3
+THREAD-1 : 4
+THREAD-2 : 5
+THREAD-3 : 6
+THREAD-1 : 7
+THREAD-2 : 8
+THREAD-3 : 9
+THREAD-1 : 10
+
+6.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Table Name : Student
+Column : Name, Subject, Marks
+Rama Math 50
+Rama Physics 60
+Rama English 45
+Hari Math 70
+Hari Physics 65
+Hari English 85
+Gita Math 90
+Gita Physics 55
+Gita English 80
+Expected Output:
+Gita 225
+Hari 220
+Rama 155
+Print the Students In Notice board format.
+(i.e Calculate the Toal mark for an individual student,
+and print in descending order of total marks.)
+
+7.DATORY QUESTION - DO NOT SKIP
+Note - Create a shared google doc with your wissen id and share with the candidate to put their
+notes. Put the document link in the feedback. The same document can be used for multiple questions
+Consider the following program to insert values into HashSet.
+class Student {
+public int id;
+public String name;
+public Student(String name, int id) {
+this.name = name;
+this.id = id;
+}
+public int hashCode() {
+return this.id;
+}
+public String toString() {
+return "Student: " + this.name + "@" + Integer.toHexString(hashCode());
+}
+public boolean equals(Object o) {
+if (o instanceof Student) {
+Student s = (Student) o;
+return s.id == this.id ? true : false;
+}
+return false;
+}
+}
+public class UpdateHashSet {
+public static void main(String[] args) {
+HashSet<Student> studentList = new HashSet<>();
+Student st1 = new Student("Nimit", 1);
+Student st2 = new Student("Rahul", 3);
+Student st3 = new Student("Nimit", 2);
+studentList.add(st1);
+studentList.add(st2);
+studentList.add(st3);
+System.out.println(studentList.size());
+st1.id = 2;
+System.out.println(studentList.size());
+}
+}
+What will be the output?
+
+8.Custom frequency sort of characters in a string
+Given a string, sort its character by frequency in descending order.
+If two characters have same frequency, maintain their order of first appearance.
+Input: tree
+Output: eetr
+
+9.Sort words in a sentence based on their length.
+Example Input: "Java is amazing" → Output: "is Java amazing"
+
+10.Difference between ArrayList and LinkedList
+Question: Explain the differences between ArrayList and LinkedList in Java. When would you prefer one
+over the other?
+
+11.Merge two Treemaps with custom logic
+1) if a key is present in both the maps then sum the value
+2) if a key is present in only one map then retain the value as it is
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+
+12.Given a string s and an integer k, find the length of the longest substring that contains at most k
+distinct characters
+Input:
+String s = "eceba";
+int k = 2;
+Explanation:
+The substrings with at most 2 distinct characters are:
+"ec" (distinct characters: e, c)
+"ece" (distinct characters: e, c)
+"ec" (distinct characters: e, c)
+"eba" (distinct characters: e, b, a) → Invalid (has 3 distinct characters)
+The longest valid substring is "ece", which has a length of 3.
+
+13.What is the difference between HashMap and ConcurrentHashMap? Follow up with - what is the
+difference between CHM and synchronized Map.
+
+14.How do you handle exceptions globally in a Spring Boot application?
+
+15.Why do we use @Bean Annotation
+
+16.Write a program to print a sequence of number from 1 to N using 3 different threads
+
+17. Fail-Fast vs. Fail-Safe Iterators
+
+Hi Bipasha,
+
+here is summarised questions:-
+
+Introduction and discussion on the project and its architecture.
+Implement an immutable class and discuss various questions related to access modifiers.
+What is the difference between the equals() and hashCode() methods?
+You are given a list of Employee objects. You need to calculate the average salary for a specific department.
+double avgSalary = employees.stream()
+        .filter(e -> e.getDept().equals("IT"))   // filter by department
+        .mapToDouble(Employee::getSalary)       // get salary as double
+        .average()                               // compute average
+        .orElse(0.0);                            // return 0 if no employee in that dept
+
+System.out.println("Average salary for IT: " + avgSalary);
+
+
+
+How would the equals() method look for this Employee class?
+  @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;           // same reference
+        if (obj == null || getClass() != obj.getClass()) return false; // null or different class
+
+        Employee other = (Employee) obj;        // cast
+        return this.id == other.id;             // compare unique field
+    }
+
+What is Serializable, and what do we need to do to make a class serializable?
+Question on spring boot annotations and spring
+Given a rotated sorted array, return the second minimum element from the array in O(log n) time complexity.
+	int[] num= {4,5,6,7,1,2,3};
+	int n = num.length;
+	int left=0, right=n-1;
+	while(left<right) {
+		int mid=(left+right)/2;
+		if(num[mid]>num[right]) {
+			left=mid+1;
+		}else {
+			right=mid;
+		}
+	}
+	
+	int p=left;
+	System.out.println(num[(p+1)%n]);
+
+Given a number, determine its type:
+Binary → if all digits are 0 or 1
+Octal → if all digits are less than or equal to 7
+Number → if any digit is greater than 7
+
+String s="10601";
+boolean b=s.chars().allMatch(c-> c=='0' || c=='1');
+boolean o=s.chars().allMatch(c-> c>='0' && c<='7');
+if(b) System.out.println("binary");
+else if(o) System.out.println("octal");
+else  System.out.println("Number");
+
+Write an SQL query to get all employees along with their manager names.
+SELECT 
+    e.emp_id,
+    e.name AS employee_name,
+    m.name AS manager_name
+FROM 
+    Employee e
+LEFT JOIN 
+    Employee m
+ON 
+    e.manager_id = m.emp_id;
+
+
+Discussion on LEFT JOIN and RIGHT JOIN.
+
+About : Kafka working.
+
+If you have large file in server A . It has been divided in to small files and sent server B. How you will collect all the small chunks and get the real file.
+Chunking: File is divided into parts, each with a sequence number (e.g., file.part1, file.part2).
+Transfer: Chunks are sent to Server B over network (HTTP, TCP, SFTP, etc.).
+Reconstruction: On Server B, read all chunks in order and write them sequentially to a new file.
+Use streams (BufferedInputStream/OutputStream) to efficiently read/write bytes.
+Verification: Checksum/hash (MD5/SHA) to ensure the reconstructed file matches the original.
+
+
+You have nested objects and Integers are in an Object array, you need to make a list of integers from that Objects array.
+
+1) WAQ to find latest order for each customer
+ 
+output fields 
+Customer_id, first_name, last_name, age, order id, item
+ 
+Input: weight[] = [4, 3, 2, 6]
+Output: 29
+ 
+2) merge and compress these network packets
+ 
+cost to merge and compress any 2 packets is 
+sum of the cost of both the packets
+ 
+you have to find the way to minimize the cost to join and compress all the packets
+ 
+2 + 3 = 5
+Now I have 5, 4,6
+ 
+4 + 5 = 9
+Now I have 9, 6
+ 
+9+16 = 15
+Now I have just one ntwork packet which is 15
+ 
+total cost 5 + 9 + 15 = 29
+
+nput: [1, 3, 11, 5, 2]
+Output: 42
+
+First connect 1+2(=3), 
+then 3+3(=6), 
+6+5(=11), 
+11+11(=22). 
+ 
+Total cost is 42 (3+6+11+22)
+
+Ya 
+Normal like introduce yourself 
+then he asked me why I wanted to join wissen.
+
+Then one logical question no need to code 
+The question was if the digit clock value is given then you are required to tell the clockwise angle it makes if that value is converted to analog clock.
+minute=minute*6
+hour=(hour%12)*30+minute*0.5
+total=hour-minute
+360-total
+Like ex: 9:30 time then in analog it makes 270 degrees between hour and minute line.
+
+Then one java coding questions 
+
+Input: [1,2,[3,4],5,[6]]
+Output: [1,2,3,4,5,6]
+
+That is here we should print all the numbers from the above input where input contains the numbers and arrays in an array.
+
+That's it.
+
+Given ‘N’ ropes with different lengths, we need to connect these ropes into one big rope with minimum cost. The cost of connecting two ropes is equal to the sum of their lengths.
+ 
+ 
+Input: [1, 3, 11, 5]
+
+Output: 33
+ 
+ 
+First connect 1+3 =4, 
+then 4+5 =9, 
+then 9+11 =20. 
+So total cost is 33 (4+9+20)
+
+1. Next palindrome program
+2. print even numbers which are greater than 10 using streams
+3. spring annotations
+4. difference between equal() and hashCode()
+5. how to make a class synchronized
+6. immutable class
+
+What is reflection in java 
+Why is it used
+If we can access private members through reflection, then how to make a field actually private
+field.setAccessible(true);
+final with priate +immuable
+
+What is CompletableFuture
+Write a custom ClassLoader to load a class into a database
+Some follow up questions for that
+Design a Cache so as to prevent OutOfMemory error specifically 
+Find the largest integer that can be formed from an array of integers
+int[] num = {3, 30, 34, 5, 9};
+
+		String[] arr=Arrays.stream(num).mapToObj(String::valueOf).toArray(String[]::new);
+		Arrays.sort(arr,(a,b)-> (b+a).compareTo(a+b));
+       String join = String.join("", arr);
+       System.out.println(join.startsWith("0")?"0":join);
+
+
+
+Java basics to be clear 
+Oops concepts
+Immutable classes,how it works,why do we do that
+Custom object in hash map 
+How ,what to take care when are we using custom object
+Single term classes
+Spring boot application, annotation to explain
+Veal scope different veal scope 
+Salary by each dept - spring boot application 
+DSA
+My SQL question
+
+1.Custom frequency sort of characters in a string
+Given a string, sort its character by frequency in descending order.
+If two characters have same frequency, maintain their order of first appearance.
+Input: tree
+Output: eetr
+
+2.Given a string s and an integer k, find the length of the longest substring that contains at most k
+distinct characters
+Input:
+String s = "eceba";
+int k = 2;
+Explanation:
+The substrings with at most 2 distinct characters are:
+"ec" (distinct characters: e, c)
+"ece" (distinct characters: e, c)
+"ec" (distinct characters: e, c)
+"eba" (distinct characters: e, b, a) → Invalid (has 3 distinct characters)
+The longest valid substring is "ece", which has a length of 3.
+
+3.What is the difference between HashMap and ConcurrentHashMap? Follow up with - what is the
+difference between CHM and synchronized Map.
+
+4.How do you handle exceptions globally in a Spring Boot application?
+
+5.Why do we use @Bean Annotation
+
+6.Merge two Treemaps with custom logic
+1) if a key is present in both the maps then sum the value
+2) if a key is present in only one map then retain the value as it is
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+
+7.Difference between ArrayList and LinkedList
+Question: Explain the differences between ArrayList and LinkedList in Java. When would you prefer one
+over the other?
+
+
+
+
+
+
+
+
+
+1.Longest Substring Without Repeating Characters
+Given a string s, find the length of the longest substring without repeating characters.
+Input: s = "abcabcbb"
+Output: 3
+Input: s = "bbbbb"
+Output: 1
+Input: s = "pwwkew"
+Output: 3
+
+
+2.You have to design a solution (classes, interfaces, etc etc) for DeckofCards. Each card has a suit (heart,
+spade, club, diamond) and a rank (ace, king, queen jack, 10, 9, 8, 7, 6, 5, 4, 3, 2). Problem 1 Write a
+function to Compare two cards and return bigger one. Suit doesnt matter. Problem 2 You are given a
+shuffled deck of cards. You have to sort them (by suit and then by rank)
+
+3.[100,80,60,70,60,75,85]
+op: [60,75,85]
+
+4. string s="()()()"
+[(),(),()]
+String s="()()()";
+int count=0, start=0;
+ArrayList<Object> li = new ArrayList<>();
+for (int i = 0; i < s.length(); i++) {
+	if(s.charAt(i)=='(') count++;
+	else if(s.charAt(i)==')') count--;
+	if(count==0) {
+		li.add(s.substring(start, i+1));
+		start=i+1;
+	}
+	
+}
+System.out.println(li);
+
+5.String s=(()())(())"
+[(()()),(())]
+
+
+6.Can palindrome be formed?
+Given a string, check if palindrome can be formed by rearranging its characters.
+Ex1. string: bangalore ans : false
+Ex2. string: abdybayd ans : true because string can be rearranged as abdyydba
+Expected time complexity - O(n)
+Space complexity - O(n)
+Map<Character, Long> collect = s.chars().mapToObj(c-> (char)c).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+	long count = collect.values().stream().filter(n-> n%2!=0).count();
+	System.out.println(count<=1);
+
+7.Program - input= 12p4a3w2an4k3a32l3e. Output - digits and letters separate
+
+8.String s="Riya Gupta"
+Riya
+Gupta
+
+
+Number Program
+===============
+//Addition of a digit//multiplication of a digit
+//revrese of a digit
+//check number is prime or not
+//find prime no between 3 to 30
+//check number is anagram or not
+//fibanacci series
+
+Array Program
+===============
+//print array element
+//find maximun/minimum number from array
+//find duplicate element from array
+//find second largest element from array
+//frequency of array element
+//find 1st repeated element / non repeated element from array
+//sum and multiplication of array element
+//sort array element
+//reverse of array element
+//check two array are equal or not
+//java program to merge two array
+//find binary number from array
+
+String Program
+==============
+//frequency of string
+//freuency of word
+//find 1st non-repeating character from string
+//find 1st repeating character from string
+//find_the_duplicate_words_and_their_number_of_occurrences
+//reverse of string
+//check string is palindrome or not
+//count charcter in the string
+//count number of white spaces in the string
+//remove white spaces from string
+//find_the_duplicate_words_and_their_number_of_occurrences
+//1) Java Program to count the total number of characters in a string
+//find duplicate character from string
+//find duplicate word from string
+//Java Program to Find the Largest and Smallest Word
+
+Java8 program
+================
+//frequency of character
+//frequency of a word
+//find second highest number or second lowest
+//findduplicatefromlistofInteger
+//sort the element ascending or descending order using java8
+//find the count of integer
+//find even or odd
+//find maximum or minimum element from list of integer
+//find first element from list of integer
+//check no is prime or not
+//find the prime number between the range
+//How do you merge two unsorted arrays into single sorted array using Java 8 streams?
+//How do you get three maximum numbers and three minimum numbers from the given list of integers?
+//20) Reverse an integer array
+//Write a program using stram api Employee salary is above 30000 create a employee object 
+//reverse a list of integer
+
+
+
+
+
+
+2.Can one use an Employee class as a key in a HashMap? (This is a very important question. Please
+cover this in depth)
+3.What is Comparator in Java, why we need it?
+4.What is String Constant Pool
+5.Are streams eagerly or lazily evaluated?
+
+Reference -
+Backend- DSA(Collections, Hash maps, trees, Linkedlist and Arrays, etc), Core Oops concepts(Multithreading, Multi Processing, Polymorphism, Inheritance etc)
+Annotations in Spring and Spring boot, Java 8 Vital features, database Optimization, Microsevices and Rest API
+
+
+Java Developer- Preparation material
+
+Can we have Multiple Catch block and how to implement it in single catch
+
+Difference in array list and linked list
+
+
+
+SQL - Create duplicate table without copy keyword
+
+Annotations of spring boot
+
+What is super class of exceptions 
+
+What is autowired
+
+What is controller
+
+Difference in == and .equals
+
+What is Polymorphism?
+
+Difference inheritance & polymorphism
+
+How to handle multiple exception in one try catch
+
+Singleton
+
+How create duplicate table without copy keyword
+
+
+overloading and overriding
+
+Difference between controller and Rest controller annotation 
+
+Use of @Resttemplet
+
+
+
+
+
+
+
+
+1.How to take a thread dump in a process, and why we take thread dumps.
+
+2.Explain the the steps we would perform when the application is not responding / stuck / ha
+ng.
+
+3.We have a csv file
+student_id, student_name, student_dob
+1, Bob, 2020-01-05
+2, Alice, 2020-01-31
+Parse this file store in memory (any data structure you want)
+As you cover various scenarios below, ask candidate to suggest the collection / data structure. Do not
+prompt them or give choices.
+
+
+4.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+OOPS Concepts:
+Design entities and behavior for File System. Expose a method to calculate the size of the any entity in
+the file system. You are expected to give interfaces, classes, hierarchy between classes.
+Evaluation : Identified the right entities/interfaces and relation between them?
+Candidate Knows about Association and Delegation 
+Explained the isA and hasA relationship?
+
+5.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Write a Java program to print a sequence of numbers up to N using 3 threads.
+For example, if we want to print a sequence of numbers up to 10 then it’ll look like this:
+THREAD-1 : 1
+THREAD-2 : 2
+THREAD-3 : 3
+THREAD-1 : 4
+THREAD-2 : 5
+THREAD-3 : 6
+THREAD-1 : 7
+THREAD-2 : 8
+THREAD-3 : 9
+THREAD-1 : 10
+
+6.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Table Name : Student
+Column : Name, Subject, Marks
+Rama Math 50
+Rama Physics 60
+Rama English 45
+Hari Math 70
+Hari Physics 65
+Hari English 85
+Gita Math 90
+Gita Physics 55
+Gita English 80
+Expected Output:
+Gita 225
+Hari 220
+Rama 155
+Print the Students In Notice board format.
+(i.e Calculate the Toal mark for an individual student,
+and print in descending order of total marks.)
+
+7.DATORY QUESTION - DO NOT SKIP
+Note - Create a shared google doc with your wissen id and share with the candidate to put their
+notes. Put the document link in the feedback. The same document can be used for multiple questions
+Consider the following program to insert values into HashSet.
+class Student {
+public int id;
+public String name;
+public Student(String name, int id) {
+this.name = name;
+this.id = id;
+}
+public int hashCode() {
+return this.id;
+}
+public String toString() {
+return "Student: " + this.name + "@" + Integer.toHexString(hashCode());
+}
+public boolean equals(Object o) {
+if (o instanceof Student) {
+Student s = (Student) o;
+return s.id == this.id ? true : false;
+}
+return false;
+}
+}
+public class UpdateHashSet {
+public static void main(String[] args) {
+HashSet<Student> studentList = new HashSet<>();
+Student st1 = new Student("Nimit", 1);
+Student st2 = new Student("Rahul", 3);
+Student st3 = new Student("Nimit", 2);
+studentList.add(st1);
+studentList.add(st2);
+studentList.add(st3);
+System.out.println(studentList.size());
+st1.id = 2;
+System.out.println(studentList.size());
+}
+}
+What will be the output?
+
+8.Custom frequency sort of characters in a string
+Given a string, sort its character by frequency in descending order.
+If two characters have same frequency, maintain their order of first appearance.
+Input: tree
+Output: eetr
+
+9.Sort words in a sentence based on their length.
+Example Input: "Java is amazing" → Output: "is Java amazing"
+
+10.Difference between ArrayList and LinkedList
+Question: Explain the differences between ArrayList and LinkedList in Java. When would you prefer one
+over the other?
+
+11.Merge two Treemaps with custom logic
+1) if a key is present in both the maps then sum the value
+2) if a key is present in only one map then retain the value as it is
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+
+12.Given a string s and an integer k, find the length of the longest substring that contains at most k
+distinct characters
+Input:
+String s = "eceba";
+int k = 2;
+Explanation:
+The substrings with at most 2 distinct characters are:
+"ec" (distinct characters: e, c)
+"ece" (distinct characters: e, c)
+"ec" (distinct characters: e, c)
+"eba" (distinct characters: e, b, a) → Invalid (has 3 distinct characters)
+The longest valid substring is "ece", which has a length of 3.
+
+13.What is the difference between HashMap and ConcurrentHashMap? Follow up with - what is the
+difference between CHM and synchronized Map.
+
+14.How do you handle exceptions globally in a Spring Boot application?
+
+15.Why do we use @Bean Annotation
+
+16.Write a program to print a sequence of number from 1 to N using 3 different threads
+
+17. Fail-Fast vs. Fail-Safe Iterators
+
+1. Next palindrome program
+2. print even numbers which are greater than 10 using streams
+3. spring annotations
+4. difference between equal() and hashCode()
+5. how to make a class synchronized
+6. immutable class
+
+What is reflection in java 
+Why is it used
+If we can access private members through reflection, then how to make a field actually private
+What is CompletableFuture
+Write a custom ClassLoader to load a class into a database
+Some follow up questions for that
+Design a Cache so as to prevent OutOfMemory error specifically 
+Find the largest integer that can be formed from an array of integers
+Java basics to be clear 
+Oops concepts
+Immutable classes,how it works,why do we do that
+Custom object in hash map 
+How ,what to take care when are we using custom object
+Single term classes
+Spring boot application, annotation to explain
+Veal scope different veal scope 
+Salary by each dept - spring boot application 
+DSA
+My SQL question
