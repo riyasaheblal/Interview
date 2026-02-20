@@ -24,3 +24,10 @@ public class Test {
 		return IntStream.rangeClosed(2, (int)Math.sqrt(num)).noneMatch(n->num%n==0);
 	}
 }
+
+
+//fibbo
+private static void fibbo() {
+		int n=10;
+		Stream.iterate(new int[] {0,1}, f->new int[] {f[1],f[0]+f[1]}).limit(n).map(f->f[0]).forEach(System.out::println);
+	}
