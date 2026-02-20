@@ -1,3 +1,63 @@
+Array Program
+===============
+//print array element
+//find maximun/minimum number from array
+//find duplicate element from array
+//find second largest element from array
+//frequency of array element
+//find 1st repeated element / non repeated element from array
+// find index of nonrepeated element
+//sum and multiplication of array element
+//sort array element
+//reverse of array element
+//check two array are equal or not
+//java program to merge two array
+//find binary number from array
+// sort by char in list
+//2 list string remove distinct
+//divisible by 2 and multiply by 3
+//squ of elements and sum
+//n>10 and average
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+//anagram
+//String {Baba,x,Bonaba};       unquie letter only one
+//groupBylength
+li.stream().collect(Collectors.grouping(String::length));
+//second largest from the list of string
+//{10,15,8,49,1,12} start with 1
+//1. Input: [1,2,[3,4],5,[6]]Output: [1,2,3,4,5,6]
+//. Input: [1, 3, 11, 5]Output: 33
+//(1,2,2,3,4,4,4,5,5) o/p: [1,2,3,4,5,null,null,null,null]
+//List and List of int flatmap
+asList.stream().flatMap(n->n.stream()).collect(Collectors.toList());
+// List<String> words = Arrays.asList("Hello", "World", "Java", "Stream");   remove 1 and last char
+List<String> collect = words.stream().filter(s->s.length()>2).map(n-> n.substring(1, n.length()-1)).collect(Collectors.toList());
+<Binary Search (Divide and Conquer)>
+//binary search algorithms  int[] arr = {10, 20, 30, 40, 50}; int key = 30;   O(log n) 
+<Maximum Product of Three Arrays (Brute Force – 3 Nested Loops)>     
+// randomly call 3 list of integer and multiply them
+< Top K Frequent Elements (HashMap + Sorting / Heap)>
+//[4,4,5,5,5,6,6,6] k=2 0/p:[5,6]           [10,10,20,20,20,30,30] k=2 o/p:[20,10]
+< Longest Consecutive Sequence (Sorting + Linear Scan)>
+// [100, 4, 200, 1, 3, 2]    o/p 4 seuence of a number [1,2,3,4,100,200]==>[1,2,3,4]==>count 4
+<partioning 2 pointer>
+//  in an array of +ve and -ve number make -ve numbers at start and + at end     int[] arr = {-1, 3, -2, 4, -5, 6};
+<Zero 2 pointer>
+//[4,0,3,-7,0,11,9,0]   o/p[0,0,0,4,3,-7,11,9]
+// [1,0,2,3,0,0,4] o/p:[0, 0, 0, 1, 2, 3, 4]==> [1,2,3,4,0,0,0,0]
+//An array of integers, e.g., [-2, 1, -3, 4, -1, 2, 1, -5, 4]  0/p An integer representing the maximum sum of a contiguous subarray 6 //(from subarray [4, -1, 2, 1])
+##<greedy Multiple Transcation>
+//Q1. Given an array prices[] of size n denoting the cost of stock on each day, the task is to find the maximum total profit if we can buy and sell the stocks any number of times.
+//Note: We can only sell a stock which we have bought earlier and we cannot hold multiple stocks on any day.
+//Input: prices[] = {100, 180, 260, 310, 40, 535, 695}    o/p::865
+<greddy Single Transcation>
+[Buy and sell stock//1. Input: prices = [7,1,5,3,6,4] Output: 5 that buying on day 2 and selling on day 1 is not allowed because '
+you must buy before you sell.//2.Input: prices = [7,6,4,3,1]Output: 0 In this case, no transactions are done and the max profit = 0.]
+
+
+
 private static void arr() {
 // Best Time to Buy and Sell Stock (Single Transaction – Greedy)
 		int[] prices= {7,1,5,3,6,4};  //5
