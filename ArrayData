@@ -123,4 +123,168 @@ private static void arr() {
 			}
 		}
 		System.out.println(maxx);
+
+
+
+
+List<String> ls = Arrays.asList("Riya","k","Ho","kkk","hepp","loo","Baba","Banaba","olo","oh","40.0","Ho","loo");
+		List<Integer> li = Arrays.asList(1,2,32,12,12);
+		List<Integer> li1 = Arrays.asList(1,12,62,12);
+		ArrayList<Integer> li2 = new ArrayList<>(li1);
+
+		//second largest in string and Integer
+		li.stream().distinct().sorted(Comparator.reverseOrder()).skip(1).limit(1).forEach(System.out::println);
+		ls.stream().distinct().sorted(Comparator.comparing(String::length).reversed()).skip(1).limit(1).forEach(System.out::println);
+
+		//first repeated and non repeated element and frequency
+		Map<String, Long> map2 = ls.stream().collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()));
+		List<String> nrs = map2.entrySet().stream().filter(n->n.getValue()==1).map(n->n.getKey()+"="+n.getValue()).limit(1).collect(Collectors.toList());
+		List<String> rs = map2.entrySet().stream().filter(n->n.getValue()>1).map(n->n.getKey()+"="+n.getValue()).limit(1).collect(Collectors.toList());
+		System.out.println(rs);
+
+		//repeated and non repeated element and frequency
+		Map<Integer, Long> map1 = li.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		List<String> collect15 = map1.entrySet().stream().filter(n->n.getValue()==1).map(n->n.getKey()+"="+n.getValue()).collect(Collectors.toList());
+		List<String> collect16 = map1.entrySet().stream().filter(n->n.getValue()>1).map(n->n.getKey()+"="+n.getValue()).collect(Collectors.toList());
+		//index of non repeated and repeated element
+		for (int i = 0; i < li.size(); i++) {
+			//			if(map1.get(li.get(i))==1) {
+			//				System.out.println("Index of nonrepeated element:: "+i);
+			//			}
+			if(map1.get(li.get(i))>1) {
+				System.out.println("Index of repeated element:: "+i);
+			}
+		}
+		System.out.println(collect15);
+
+
+		//binarynumber
+		List<String> collect13 = ls.stream().filter(n->{
+			try {
+				Double.parseDouble(n);
+				return n.contains(".");
+				//				Integer.parseInt(n);
+				//				return true;
+			}catch (Exception e) {	
+				return false;
+				//return false;
+			}
+		}).collect(Collectors.toList());
+		System.out.println(collect13);
+
+		//sortbychar or  groupbychar
+		List<String> collect11 = ls.stream().sorted(Comparator.comparing(s->s.charAt(0))).collect(Collectors.toList());
+		Map<Character, List<String>> collect12 = ls.stream().collect(Collectors.groupingBy(s->s.charAt(0)));
+		System.out.println(collect12);
+
+
+		//Basic
+		double orElse = li.stream().filter(n->n>10).mapToInt(n->n).average().orElse(0);
+		Integer integer = li.stream().map(n->n*n).reduce((a,b)->a+b).get();
+		List<Integer> collect9 = li.stream().filter(n->n%2==0).map(n->n*3).collect(Collectors.toList());
+
+		//sum and mul
+		li.stream().reduce((a,b)->a+b).get();
+		li.stream().reduce((a,b)->a*b).get();
+		//merege 2 array
+		li2.addAll(li);
+		//check ywo array equal sort
+		//		li.equals(li2);
+		//		Collections.sort(li);
+		//		Collections.reverse(li);
+		List<Integer> collect10 = li2.stream().distinct().collect(Collectors.toList());
+		System.out.println(collect10);
+
+		//TreeMap
+		TreeMap<Integer, Integer> t1 = new TreeMap<>();
+		t1.put(1, 10);
+		t1.put(2, 20);
+		t1.put(3, 30);
+		TreeMap<Integer, Integer> t2 = new TreeMap<>();
+		t2.put(1, 10);
+		t2.put(2, 20);
+		t2.put(4, 30);
+		TreeMap<Integer, Integer> t3 = new TreeMap<>(t2);
+		for(Entry<Integer, Integer> j:t1.entrySet()) {
+			t3.merge(j.getKey(), j.getValue(), Integer::sum);
+		}
+		System.out.println(t3);
+
+		//anagram
+		Map<String, List<String>> map=new HashMap<>();
+		for(String g:ls) {
+			char[] c = g.toLowerCase().toCharArray();
+			Arrays.sort(c);
+			String s=new String(c);
+			map.computeIfAbsent(s, n->new ArrayList<>()).add(g);
+		}
+		System.out.println(map.values());
+
+		//Unquien letter from each word
+		for(String d:ls) {
+			Map<Character, Long> collect = d.toLowerCase().chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+			long count = collect.entrySet().stream().filter(n->n.getValue()==1).count();
+			if(count==1) {
+				System.out.println(d);
+			}
+		}
+
+		//groupBylength
+		Map<Integer, List<String>> collect8 = ls.stream().collect(Collectors.groupingBy(String::length));
+		System.out.println(collect8);
+
+		//second largest string int
+		List<String> sll = ls.stream().sorted(Comparator.comparing(String::length).reversed()).skip(1).limit(1).collect(Collectors.toList());
+		System.out.println(sll);
+		List<Integer> collect7 = li.stream().sorted(Comparator.reverseOrder()).skip(1).limit(1).collect(Collectors.toList());
+		System.out.println(collect7);
+
+		//starts with 1
+		List<Integer> asList3 = Arrays.asList(10,15,8,49,1,12);
+		List<Integer> collect6 = asList3.stream().filter(n->String.valueOf(n).startsWith("1")).collect(Collectors.toList());
+		System.out.println(collect6);
+
+		//priortityque
+		int[] o= {1, 3, 11, 5};
+		PriorityQueue<Integer> pq=new PriorityQueue<>();
+		for(int aa:o) {
+			pq.add(aa);
+		}
+		int total=0;
+		while(pq.size()>1) {
+			int a = pq.poll();
+			int b = pq.poll();
+			int sum=a+b;
+			total+=sum;
+			pq.add(sum);
+		}
+		System.out.println(total);
+
+
+		//duplicate null
+		List<Integer> asList2 = Arrays.asList(1,2,2,3,4,4,4,5,5);
+		HashSet<Integer> seen = new HashSet<>();
+		ArrayList<Integer> all = new ArrayList<>();
+		for(int aa:asList2) {
+			if(seen.contains(aa)) {
+				all.add(null);
+			}else {
+				seen.add(aa);
+				all.add(aa);
+			}
+		}
+		List<Integer> collect5 = all.stream().sorted(Comparator.nullsLast(null)).collect(Collectors.toList());
+		System.out.println(collect5);
+
+
+		//flat map
+		List<List<Integer>> asList = Arrays.asList(Arrays.asList(1,2),Arrays.asList(3,4));
+		List<Integer> collect4 = asList.stream().flatMap(n->n.stream()).collect(Collectors.toList());
+		System.out.println(collect4);
+
+		//remove 1 and remove last
+		List<String> words = Arrays.asList("Hello", "World", "Java", "Stream");
+		List<String> collect3 = words.stream().filter(n->n.length()>2).map(n->n.substring(1, n.length()-1)).collect(Collectors.toList());
+		System.out.println(collect3);
+
 	}
