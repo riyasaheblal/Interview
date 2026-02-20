@@ -1,4 +1,10 @@
 
+//revrese of a digit
+//check number is prime or not
+//find prime no between 3 to 30
+//fibanacci series
+
+
 //Reverse of strng and int 
 private static void num() {
       String n="Malayalam".toLowerCase();
