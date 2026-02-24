@@ -4,6 +4,14 @@
 //find prime no between 3 to 30
 //fibanacci series
 
+int num=1109;
+	int r=0;
+	while(num!=0) {
+		int d=num%10;
+		r=r*10+d;
+		num=num/10;
+	}
+	System.out.println(r);
 
 //Reverse of strng and int 
 private static void num() {
