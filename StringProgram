@@ -1,0 +1,128 @@
+//regex String s = "000025STD099035XXX";   //3 digit find >30
+// reverse string without moving special  Hell$Wor%ld
+//reverse constant  n->n!='a'&& n!='e'&& n!='i'&& n!='o'&& n!='u'
+//frequency of string
+//freuency of word
+//find 1st non-repeating character from string
+//find 1st repeating character from string
+//find_the_duplicate_words_and_their_number_of_occurrences
+//reverse of string
+//check string is palindrome or not
+//Ex1. string: bangalore ans : falseEx2. string: abdybayd ans : true because string can be rearranged as abdyydba
+//count charcter in the string
+//count number of white spaces in the string
+//remove white spaces from string
+//find_the_duplicate_words_and_their_number_of_occurrences
+//1) Java Program to count the total number of characters in a string
+//string Riya~Gupta
+//yfgy123%^hgcc
+//Binary → if all digits are 0 or 1Octal → if all digits are less than or equal to 7Number → if any digit is greater than 7
+//Input: tree    Output: eetr  
+//find duplicate character from string
+//find duplicate word from string
+//Java Program to Find the Largest and Smallest Word
+//Example Input: "Java is amazing" → Output: "is Java amazing"  make Is java amazing  Charatter.tolowercase(rev.charAt(0))+rev.substring(1);
+//amazing is Java
+String string2 = Arrays.stream(s.split("\\s+")).reduce((a,b)->b+" "+a).get();
+//slidingWIndows
+//Longest consectivete String s = "aaabbbaaa";   //3
+//String s="CORE"   [C, CO, COR, CORE, O, OR, ORE, R, RE, E]
+//String s="M@ !a^d am;   madam palindrome
+
+
+
+
+
+
+
+
+private static void str() {
+
+		//sliding windows
+		
+		
+//		.Longest Substring Without Repeating Characters
+//		Given a string s, find the length of the longest substring without repeating characters.
+//		Input: s = "abcabcbb"
+//		Output: 3
+//		Input: s = "bbbbb"
+//		Output: 1
+//		Input: s = "pwwkew"
+//		Output: 3
+		String sliding="bbbbb";
+		Set<Character> seen = new HashSet<>();
+		int left=0,max=0;
+		for (int i = 0; i < sliding.length(); i++) {
+			while(seen.contains(sliding.charAt(i))) {
+				seen.remove(sliding.charAt(left));
+				left++;
+			}
+			seen.add(sliding.charAt(i));
+			max=Math.max(max, i-left+1);
+		}
+		System.out.println(max);
+		
+		
+		
+//		2.Given a string s and an integer k, find the length of the longest substring that contains at most k
+//		distinct characters
+//		Input:
+//		String s = "eceba";
+//		int k = 2; which has a length of 3.
+		String d="eceba";
+		HashMap<Character, Integer> map = new HashMap<>();
+		int left1=0,max1=0,k=2;
+        for (int i = 0; i < d.length(); i++) {
+			char c1 = d.charAt(i);
+			map.put(c1, map.getOrDefault(c1, 0)+1);
+			if(map.size()>k) {
+				char c2 = d.charAt(left1++);
+				map.put(c2, map.get(c2)-1);
+				if(map.get(c2)==0) {
+					map.remove(c2);
+				}
+				left++;
+			}
+			max1=Math.max(max1, i-left1+1);
+		}
+        System.out.println(max1);
+        
+        
+        //String s = "aaabbbaaa";   //3
+        String sp= "aaabbbaaa";
+        int maxx=1,count=1;
+        for (int i = 1; i < sp.length(); i++) {
+        	if(sp.charAt(i)==sp.charAt(i-1)) {
+        		count++;
+        		maxx=Math.max(maxx,count);
+        	}else{
+        		count=1;
+        	}	
+		}
+        System.out.println(maxx);
+        
+
+		//String s="CORE"   [C, CO, COR, CORE, O, OR, ORE, R, RE, E]
+		String a="CORE";
+		ArrayList<String> al = new ArrayList<>();
+		for (int i = 0; i < a.length(); i++) {
+			for (int j = i+1; j < a.length()+1; j++) {
+				String substring = a.substring(i, j);
+				al.add(substring);
+			}
+		}
+		System.out.println(al);
+
+		//String s="M@ !a^d am;   madam palindrome	
+		String s="M@ !a^d am";
+		String s1 = Arrays.stream(s.split("//s+")).collect(Collectors.joining(""));
+		StringBuilder s2 = new StringBuilder();
+		s1.chars().mapToObj(c->(char)c).forEach(n->{
+			if(Character.isLetter(n)) {
+				s2.append(n);
+			}
+		});
+		String data1 = s2.toString().toLowerCase();
+		String data2 = new StringBuilder(data1).reverse().toString();
+		System.out.println(data1.equals(data2));
+	}
