@@ -39,6 +39,169 @@ String string2 = Arrays.stream(s.split("\\s+")).reduce((a,b)->b+" "+a).get();
 private static void str() {
 
 
+//regex String s = "000025STD099035XXX";   //3 digit find >30
+String s = "000025STD099035XXX";
+		Pattern c = Pattern.compile("\\d{3}");
+		Matcher m = c.matcher(s);
+		List<Integer> li=new ArrayList<>();
+		while(m.find()) {
+			li.add(Integer.parseInt(m.group()));
+		}
+		List<Integer> collect = li.stream().filter(n->n>30).collect(Collectors.toList());
+		System.out.println(collect);
+
+	String s = "000025STD099035XXX";
+		Pattern c = Pattern.compile("\\d{3}|[A-Za-z]{3}");
+		Matcher m = c.matcher(s);
+		List<String> li=new ArrayList<>();
+		while(m.find()) {
+			li.add(m.group());
+		}
+		System.out.println(li);
+
+	// reverse string without moving special  Hell$Wor%ld
+		//reverse constant  n->n!='a'&& n!='e'&& n!='i'&& n!='o'&& n!='u'
+		//dont move specail charte
+		String s="Hell$Wor%ld";
+		List<Character> collect = s.chars().mapToObj(c->(char)c).filter(Character::isLetter).collect(Collectors.toList());
+        Collections.reverse(collect);
+        StringBuilder str = new StringBuilder();
+        Iterator<Character> itr = collect.iterator();
+        s.chars().mapToObj(c->(char)c).forEach(n->{
+        	if(Character.isLetter(n)) {
+        		str.append(itr.next());
+        	}else {
+        		str.append(n);
+        	}
+        });
+        
+        System.out.println(str);
+
+
+
+
+String s="Hell$Wor%ld";
+		List<Character> collect = s.chars().mapToObj(c->(char)c).filter(n->n!='a'&& n!='e'&& n!='i'&& n!='o'&& n!='u' ).collect(Collectors.toList());
+        Collections.reverse(collect);
+        StringBuilder str = new StringBuilder();
+        Iterator<Character> itr = collect.iterator();
+        s.chars().mapToObj(c->(char)c).forEach(n->{
+        	if(n!='a'&& n!='e'&& n!='i'&& n!='o'&& n!='u') {
+        		str.append(itr.next());
+        	}else {
+        		str.append(n);
+        	}
+        });
+        
+        System.out.println(str);
+
+		//Ex1. string: bangalore ans : falseEx2. string: abdybayd ans : true because string can be rearranged as abdyydba
+		String s="bangalore";   //beb 
+		Map<Character, Long> collect = s.toLowerCase().chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		long count = collect.entrySet().stream().filter(n->n.getValue()==1).count();
+		if(count<=1) {
+			System.out.println("palindrome");
+		}else {
+			System.out.println("Not palindrome");
+		}
+
+
+//string Riya~Gupta
+String s="Riya~Gupta";
+		String[] split = s.split("~");
+		System.out.println(split[0]+ "    "+split[1]);
+
+//yfgy123%^hgcc		
+//1) Java Program to count the total number of characters in a string
+		String s="yfgy123%^hgcc";
+		StringBuilder str = new StringBuilder();
+		StringBuilder sp = new StringBuilder();
+		StringBuilder num = new StringBuilder();
+		s.chars().mapToObj(c->(char)c).forEach(n->{
+			if(Character.isLetter(n)) {
+				str.append(n);
+			}else if(Character.isDigit(n)) {
+				num.append(n);
+			}else {
+				sp.append(n);
+			}
+		});
+		System.out.println("String::"+str);
+		System.out.println("Number::"+num);
+		System.out.println("Special::"+sp);
+
+
+	String s="yfgy123%^hgcc";
+		 int count=0;
+		StringBuilder str = new StringBuilder();
+		StringBuilder sp = new StringBuilder();
+		StringBuilder num = new StringBuilder();
+		for(Character n:s.toCharArray()) {
+			if(Character.isLetter(n)) {
+				str.append(n);
+				count++;
+			}else if(Character.isDigit(n)) {
+				num.append(n);
+			}else {
+				sp.append(n);
+			}
+		};
+		System.out.println("String and its count::"+str +" = "+count);
+		System.out.println("Number::"+num);
+		System.out.println("Special::"+sp);
+
+//Binary → if all digits are 0 or 1Octal → if all digits are less than or equal to 7Number → if any digit is greater than 7
+		String s="017101";
+		boolean binary = s.chars().allMatch(c->c=='0'|| c=='1');
+		boolean octal = s.chars().allMatch(c->c>='0'&& c<='7');
+		if(binary) {
+			System.out.println("binary");
+		}else if(octal) {
+			System.out.println("Octal");
+		}else {
+			System.out.println("Number");
+		}
+
+//Input: tree    Output: eetr  		
+		String s="tree";
+		//linkedhashmap because it maintain order
+		LinkedHashMap<Character, Long> frequency = s.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()));
+		List<Character> collect2 = frequency.entrySet().stream().sorted((a,b)->b.getValue().compareTo(a.getValue())).map(n->n.getKey()).collect(Collectors.toList());
+		StringBuilder str = new StringBuilder();
+		for(Character c:collect2) {
+			str.append(String.valueOf(c).repeat(frequency.get(c).intValue()));
+		}
+		System.out.println(str);
+
+        //Duplicate word and Non duplicate and charcter
+		String s="Java is amazing is";
+		Map<String, Long> collect = Arrays.stream(s.split("\\s+")).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+		//Duplicate and their occurance
+		collect.entrySet().stream().filter(n->n.getValue()==1).map(n->n.getKey()+" "+n.getValue()).forEach(System.out::println);
+		//nonduplicate 
+		collect.entrySet().stream().filter(n->n.getValue()>1).map(n->n.getKey()+" "+n.getValue()).forEach(System.out::println);
+
+        //char count
+        Map<Character, Long> collect = s.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(),LinkedHashMap::new,Collectors.counting()));
+		//count  space and their occurance
+		collect.entrySet().stream().filter(n->n.getKey()==' ').map(n->n.getKey()+"="+n.getValue()).forEach(System.out::println);
+		//duplicate  char
+		collect.entrySet().stream().filter(n->n.getValue()==1).map(n->n.getKey()+" "+n.getValue()).forEach(System.out::println);
+		//non dulicate char 
+		collect.entrySet().stream().filter(n->n.getValue()>1).map(n->n.getKey()+" "+n.getValue()).forEach(System.out::println);
+
+
+
+
+//Java Program to Find the Largest and Smallest Word
+		String s="Java is amazing";
+		//largest
+		Arrays.stream(s.split("\\s+")).sorted(Comparator.comparing(String::length).reversed()).limit(1).forEach(System.out::println);
+	    //smallest
+		Arrays.stream(s.split("\\s+")).sorted(Comparator.comparing(String::length)).limit(1).forEach(System.out::println);
+
+		
+
 //Example Input: "Java is amazing" → Output: "is Java amazing"  make Is java amazing  Charatter.tolowercase(rev.charAt(0))+rev.substring(1);
 		//amazing is Java
 		String s="Java is amazing";
