@@ -1,0 +1,1332 @@
+1.How to take a thread dump in a process, and why we take thread dumps.
+kill -3 <PID>
+ctrl+break
+
+
+2.Explain the the steps we would perform when the application is not responding / stuck / ha
+ng.
+
+3.We have a csv file
+student_id, student_name, student_dob
+1, Bob, 2020-01-05
+2, Alice, 2020-01-31
+Parse this file store in memory (any data structure you want)
+As you cover various scenarios below, ask candidate to suggest the collection / data structure. Do not
+prompt them or give choices.
+
+4.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+OOPS Concepts:
+Design entities and behavior for File System. Expose a method to calculate the size of the any entity in
+the file system. You are expected to give interfaces, classes, hierarchy between classes.
+Evaluation : Identified the right entities/interfaces and relation between them?
+Candidate Knows about Association and Delegation 
+Explained the isA and hasA relationship?
+
+5.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Write a Java program to print a sequence of numbers up to N using 3 threads.
+For example, if we want to print a sequence of numbers up to 10 then it’ll look like this:
+(count-1)%3+1==tid
+THREAD-1 : 1
+THREAD-2 : 2
+THREAD-3 : 3
+THREAD-1 : 4
+THREAD-2 : 5
+THREAD-3 : 6
+THREAD-1 : 7
+THREAD-2 : 8
+THREAD-3 : 9
+THREAD-1 : 10
+
+//	for (int i = 0; i <=3; i++) {
+//		int tid=i;
+//		new Thread(()->{
+//			while(true) {
+//				synchronized(lock) {
+//					if(count>N) break;
+//					if((count-1)%3+1==tid) {
+//						System.out.println("Thread::"+tid+"::"+count++);
+//					}
+//				}
+//			}
+//		}).start();
+
+6.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Table Name : Student
+Column : Name, Subject, Marks
+String[][] data = {
+    {"Rama", "Math", "50"},
+    {"Rama", "Physics", "60"},
+    {"Rama", "English", "45"},
+    {"Hari", "Math", "70"},
+    {"Hari", "Physics", "65"},
+    {"Hari", "English", "85"},
+    {"Gita", "Math", "90"},
+    {"Gita", "Physics", "55"},
+    {"Gita", "English", "80"}
+};
+
+Rama Math 50
+Rama Physics 60
+Rama English 45
+Hari Math 70
+Hari Physics 65
+Hari English 85
+Gita Math 90
+Gita Physics 55
+Gita English 80
+Expected Output:
+Gita 225
+Hari 220
+Rama 155
+Print the Students In Notice board format.
+(i.e Calculate the Toal mark for an individual student,
+and print in descending order of total marks.)
+
+7.DATORY QUESTION - DO NOT SKIP
+Note - Create a shared google doc with your wissen id and share with the candidate to put their
+notes. Put the document link in the feedback. The same document can be used for multiple questions
+Consider the following program to insert values into HashSet.
+class Student {
+public int id;
+public String name;
+public Student(String name, int id) {
+this.name = name;
+this.id = id;
+}
+public int hashCode() {
+return this.id;
+}
+public String toString() {
+return "Student: " + this.name + "@" + Integer.toHexString(hashCode());
+}
+public boolean equals(Object o) {
+if (o instanceof Student) {
+Student s = (Student) o;
+return s.id == this.id ? true : false;
+}
+return false;
+}
+}
+public class UpdateHashSet {
+public static void main(String[] args) {
+HashSet<Student> studentList = new HashSet<>();
+Student st1 = new Student("Nimit", 1);
+Student st2 = new Student("Rahul", 3);
+Student st3 = new Student("Nimit", 2);
+studentList.add(st1);
+studentList.add(st2);
+studentList.add(st3);
+System.out.println(studentList.size());    //3
+st1.id = 2;
+System.out.println(studentList.size());    //3
+}
+}
+What will be the output?
+When mutation occurs it will not add or remove from that bucket instead its going to stored in different bucket size will be same now 
+but the std1 is now corrupted.
+
+
+
+
+8.Custom frequency sort of characters in a string
+Given a string, sort its character by frequency in descending order.
+If two characters have same frequency, maintain their order of first appearance.
+Input: tree      
+Output: eetr
+
+9.Sort words in a sentence based on their length.
+Example Input: "Java is amazing" → Output: "is Java amazing"
+
+10.Difference between ArrayList and LinkedList
+Question: Explain the differences between ArrayList and LinkedList in Java. When would you prefer one
+over the other?
+
+11.Merge two Treemaps with custom logic
+1) if a key is present in both the maps then sum the value
+2) if a key is present in only one map then retain the value as it is
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+
+12.Given a string s and an integer k, find the length of the longest substring that contains at most k
+distinct characters
+Input:
+String s = "eceba";
+int k = 2;
+Explanation:
+The substrings with at most 2 distinct characters are:
+"ec" (distinct characters: e, c)
+"ece" (distinct characters: e, c)
+"ec" (distinct characters: e, c)
+"eba" (distinct characters: e, b, a) → Invalid (has 3 distinct characters)
+The longest valid substring is "ece", which has a length of 3.
+
+13.What is the difference between HashMap and ConcurrentHashMap? Follow up with - what is the
+difference between CHM and synchronized Map.
+
+14.How do you handle exceptions globally in a Spring Boot application?
+
+15.Why do we use @Bean Annotation
+Bean is an object create and managed by spring ioc how to create 2 way normally 1. 1.class @configuration and inside method bean annoted return an object
+2. Component to custom bean for rest template scan package sterotypr annote service respo
+
+16.Write a program to print a sequence of number from 1 to N using 3 different threads
+
+17. Fail-Fast vs. Fail-Safe Iterators
+
+Hi Bipasha,
+
+here is summarised questions:-
+
+Introduction and discussion on the project and its architecture.
+Implement an immutable class and discuss various questions related to access modifiers.
+What is the difference between the equals() and hashCode() methods?
+
+You are given a list of Employee objects. You need to calculate the average salary for a specific department.
+emp.stream().filter(x->(x.getdep).ewuqls("IT")).mapToObj(emp::getsal).avag().orelse(0.0);
+
+
+
+How would the equals() method look for this Employee class?
+public boolean equals(object obj){
+	if(this==obj) return true;
+	if(this=null) return false;
+	Emp e=(Emp) obj;
+	return this.id=e.id;
+}
+
+
+What is Serializable, and what do we need to do to make a class serializable?   //marker interface
+obj byte Db 
+implements serizaliont and version
+transient	
+
+Question on spring boot annotations and spring
+Given a rotated sorted array, return the second minimum element from the array in O(log n) time complexity.
+Given a number, determine its type:
+Binary → if all digits are 0 or 1
+Octal → if all digits are less than or equal to 7
+Number → if any digit is greater than 7
+
+Write an SQL query to get all employees along with their manager names.
+select e.id as emp_id, e.name as emp_name, m.name as mananger_name 
+from emp e
+left join emp m on e.emp_id=m.id;
+Discussion on LEFT JOIN and RIGHT JOIN.
+take left all data and similar from right no data null similar for right
+
+About : Kafka working.
+
+If you have large file in server A . It has been divided in to small files and sent server B. How you will collect all the small chunks and get the real file.
+chucked: file chuled according to file name
+transfere serve B with https request
+operation sequentailly read and write file
+SHA operation
+
+
+You have nested objects and Integers are in an Object array, you need to make a list of integers from that Objects array.
+
+1) WAQ to find latest order for each customer
+select * from customer c join order o on c.id=o.id where o.date={select max(o.date) from order o1 where o1.id=o.id };
+
+ 
+output fields 
+Customer_id, first_name, last_name, age, order id, item
+ 
+Input: weight[] = [4, 3, 2, 6]
+Output: 29
+ 
+2) merge and compress these network packets
+ 
+cost to merge and compress any 2 packets is 
+sum of the cost of both the packets
+ 
+you have to find the way to minimize the cost to join and compress all the packets
+ 
+2 + 3 = 5
+Now I have 5, 4,6
+ 
+4 + 5 = 9
+Now I have 9, 6
+ 
+9+16 = 15
+Now I have just one ntwork packet which is 15
+ 
+total cost 5 + 9 + 15 = 29
+
+nput: [1, 3, 11, 5, 2]
+Output: 42
+
+First connect 1+2(=3), 
+then 3+3(=6), 
+6+5(=11), 
+11+11(=22). 
+ 
+Total cost is 42 (3+6+11+22)
+
+Ya 
+Normal like introduce yourself 
+then he asked me why I wanted to join wissen.
+
+Then one logical question no need to code 
+The question was if the digit clock value is given then you are required to tell the clockwise angle it makes if that value is converted to analog clock.
+Like ex: 9:30 time then in analog it makes 270 degrees between hour and minute line.
+minute=minute*6;
+hour=(hour%12)*30+minute*0.5
+angle=hour-minute
+360-angle
+
+
+
+Then one java coding questions 
+
+Input: [1,2,[3,4],5,[6]]
+Output: [1,2,3,4,5,6]
+
+That is here we should print all the numbers from the above input where input contains the numbers and arrays in an array.
+
+That's it.
+
+Given ‘N’ ropes with different lengths, we need to connect these ropes into one big rope with minimum cost. The cost of connecting two ropes is equal to the sum of their lengths.
+ 
+ 
+Input: [1, 3, 11, 5]
+
+Output: 33
+ 
+ 
+First connect 1+3 =4, 
+then 4+5 =9, 
+then 9+11 =20. 
+So total cost is 33 (4+9+20)
+
+1. Next palindrome program
+2. print even numbers which are greater than 10 using streams
+3. spring annotations
+4. difference between equal() and hashCode()
+5. how to make a class synchronized
+final
+6. immutable class
+
+What is reflection in java  : 
+moduify fiels,methods,constructors at runtime
+
+Why is it used
+members is private can access outside the class with the help odf field.setaccessible()
+
+If we can access private members through reflection, then how to make a field actually private
+field.setaccessible(true) or private+final immutable
+
+What is CompletableFuture
+Write a custom ClassLoader to load a class into a database
+Some follow up questions for that
+Design a Cache so as to prevent OutOfMemory error specifically 
+Find the largest integer that can be formed from an array of integers
+
+Java basics to be clear 
+Oops concepts
+Immutable classes,how it works,why do we do that
+Custom object in hash map 
+How ,what to take care when are we using custom object
+Single term classes
+Spring boot application, annotation to explain
+Veal scope different veal scope 
+Salary by each dept - spring boot application 
+DSA
+My SQL question
+
+1.Custom frequency sort of characters in a string
+Given a string, sort its character by frequency in descending order.
+If two characters have same frequency, maintain their order of first appearance.
+Input: tree
+Output: eetr
+
+2.Given a string s and an integer k, find the length of the longest substring that contains at most k
+distinct characters
+Input:
+String s = "eceba";
+int k = 2;
+Explanation:
+The substrings with at most 2 distinct characters are:
+"ec" (distinct characters: e, c)
+"ece" (distinct characters: e, c)
+"ec" (distinct characters: e, c)
+"eba" (distinct characters: e, b, a) → Invalid (has 3 distinct characters)
+The longest valid substring is "ece", which has a length of 3.
+
+3.What is the difference between HashMap and ConcurrentHashMap? Follow up with - what is the
+difference between CHM and synchronized Map.
+
+4.How do you handle exceptions globally in a Spring Boot application?
+
+5.Why do we use @Bean Annotation
+
+6.Merge two Treemaps with custom logic
+1) if a key is present in both the maps then sum the value
+2) if a key is present in only one map then retain the value as it is
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+
+7.Difference between ArrayList and LinkedList
+Question: Explain the differences between ArrayList and LinkedList in Java. When would you prefer one
+over the other?
+
+
+
+1.Longest Substring Without Repeating Characters
+Given a string s, find the length of the longest substring without repeating characters.
+Input: s = "abcabcbb"
+Output: 3
+Input: s = "bbbbb"
+Output: 1
+Input: s = "pwwkew"
+Output: 3
+
+
+String sliding="bbbbb";
+		Set<Character> seen = new HashSet<>();
+		int left=0,max=0;
+		for (int i = 0; i < sliding.length(); i++) {
+			while(seen.contains(sliding.charAt(i))) {
+				seen.remove(sliding.charAt(left));
+				left++;
+			}
+			seen.add(sliding.charAt(i));
+			max=Math.max(max, i-left+1);
+		}
+		System.out.println(max);
+		
+		
+		
+		
+
+
+i have questions like this (1,2,2,3,4,4,4,5,5) o/p: [1,2,3,4,5,null,null,null,null]
+import java.util.*;
+
+public class UniqueWithNulls {
+    public static void main(String[] args) {
+        int[] input = {1, 2, 2, 3, 4, 4, 4, 5, 5};
+        List<Integer> output = new ArrayList<>();
+        Set<Integer> seen = new HashSet<>();
+
+        for (int num : input) {
+            if (seen.contains(num)) {
+                output.add(null); // duplicate → null
+            } else {
+                output.add(num);  // first occurrence
+                seen.add(num);
+            }
+        }
+
+        System.out.println(output);
+    }
+}
+
+
+2.Can one use an Employee class as a key in a HashMap? (This is a very important question. Please
+cover this in depth)
+3.What is Comparator in Java, why we need it?
+4.What is String Constant Pool
+5.Are streams eagerly or lazily evaluated?
+6.Can palindrome be formed?
+Given a string, check if palindrome can be formed by rearranging its characters.
+Ex1. string: bangalore ans : false
+Ex2. string: abdybayd ans : true because string can be rearranged as abdyydba
+Expected time complexity - O(n)
+Space complexity - O(n)
+7.You have to design a solution (classes, interfaces, etc etc) for DeckofCards. Each card has a suit (heart,
+spade, club, diamond) and a rank (ace, king, queen jack, 10, 9, 8, 7, 6, 5, 4, 3, 2). Problem 1 Write a
+function to Compare two cards and return bigger one. Suit doesnt matter. Problem 2 You are given a
+shuffled deck of cards. You have to sort them (by suit and then by rank) Reference -
+ashrithareddyd: Backend- DSA(Collections, Hash maps, trees, Linkedlist and Arrays, etc), Core Oops concepts(Multithreading, Multi Processing, Polymorphism, Inheritance etc)
+Annotations in Spring and Spring boot, Java 8 Vital features, database Optimization, Microsevices and Rest API
+
+
+
+Number Program
+===============
+//Addition of a digit//multiplication of a digit
+//revrese of a digit
+int num=1109;
+	int r=0;
+	while(num!=0) {
+		int d=num%10;
+		r=r*10+d;
+		num=num/10;
+	}
+	System.out.println(r);
+//check number is prime or not
+//find prime no between 3 to 30
+//check number is anagram or not
+//fibanacci series
+*
+**
+***
+****
+*****
+Array Program
+===============
+//print array element
+//find maximun/minimum number from array
+//find duplicate element from array
+//find second largest element from array
+//frequency of array element
+//find 1st repeated element / non repeated element from array
+// find index of nonrepeated element
+//sum and multiplication of array element
+//sort array element
+//reverse of array element
+//check two array are equal or not
+//java program to merge two array
+//find binary number from array
+// sort by char in list
+//2 list string remove distinct
+//divisible by 2 and multiply by 3
+//squ of elements and sum
+//n>10 and average
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+//anagram
+//String {Baba,x,Bonaba};       unquie letter only one
+//groupBylength
+li.stream().collect(Collectors.grouping(String::length));
+//second largest from the list of string
+//{10,15,8,49,1,12} start with 1
+//1. Input: [1,2,[3,4],5,[6]]Output: [1,2,3,4,5,6]
+//. Input: [1, 3, 11, 5]Output: 33
+//(1,2,2,3,4,4,4,5,5) o/p: [1,2,3,4,5,null,null,null,null]
+//List and List of int flatmap
+asList.stream().flatMap(n->n.stream()).collect(Collectors.toList());
+// List<String> words = Arrays.asList("Hello", "World", "Java", "Stream");   remove 1 and last char
+List<String> collect = words.stream().filter(s->s.length()>2).map(n-> n.substring(1, n.length()-1)).collect(Collectors.toList());
+<Binary Search (Divide and Conquer)>
+//binary search algorithms  int[] arr = {10, 20, 30, 40, 50}; int key = 30;   O(log n) 
+<Maximum Product of Three Arrays (Brute Force – 3 Nested Loops)>     
+// randomly call 3 list of integer and multiply them
+< Top K Frequent Elements (HashMap + Sorting / Heap)>
+//[4,4,5,5,5,6,6,6] k=2 0/p:[5,6]           [10,10,20,20,20,30,30] k=2 o/p:[20,10]
+< Longest Consecutive Sequence (Sorting + Linear Scan)>
+// [100, 4, 200, 1, 3, 2]    o/p 4 seuence of a number [1,2,3,4,100,200]==>[1,2,3,4]==>count 4
+<partioning 2 pointer>
+//  in an array of +ve and -ve number make -ve numbers at start and + at end     int[] arr = {-1, 3, -2, 4, -5, 6};
+<Zero 2 pointer>
+//[4,0,3,-7,0,11,9,0]   o/p[0,0,0,4,3,-7,11,9]
+// [1,0,2,3,0,0,4] o/p:[0, 0, 0, 1, 2, 3, 4]==> [1,2,3,4,0,0,0,0]
+//An array of integers, e.g., [-2, 1, -3, 4, -1, 2, 1, -5, 4]  0/p An integer representing the maximum sum of a contiguous subarray 6 //(from subarray [4, -1, 2, 1])
+##<greedy Multiple Transcation>
+//Q1. Given an array prices[] of size n denoting the cost of stock on each day, the task is to find the maximum total profit if we can buy and sell the stocks any number of times.
+//Note: We can only sell a stock which we have bought earlier and we cannot hold multiple stocks on any day.
+//Input: prices[] = {100, 180, 260, 310, 40, 535, 695}    o/p::865
+<greddy Single Transcation>
+[Buy and sell stock//1. Input: prices = [7,1,5,3,6,4] Output: 5 that buying on day 2 and selling on day 1 is not allowed because '
+you must buy before you sell.//2.Input: prices = [7,6,4,3,1]Output: 0 In this case, no transactions are done and the max profit = 0.]
+
+String Program
+==============
+//regex String s = "000025STD099035XXX";   //3 digit find >30
+// reverse string without moving special  Hell$Wor%ld
+//reverse constant  n->n!='a'&& n!='e'&& n!='i'&& n!='o'&& n!='u'
+//frequency of string
+//freuency of word
+//find 1st non-repeating character from string
+//find 1st repeating character from string
+//find_the_duplicate_words_and_their_number_of_occurrences
+//reverse of string
+//check string is palindrome or not
+//Ex1. string: bangalore ans : falseEx2. string: abdybayd ans : true because string can be rearranged as abdyydba
+//count charcter in the string
+//count number of white spaces in the string
+//remove white spaces from string
+//find_the_duplicate_words_and_their_number_of_occurrences
+//1) Java Program to count the total number of characters in a string
+//string Riya~Gupta
+//yfgy123%^hgcc
+//Binary → if all digits are 0 or 1Octal → if all digits are less than or equal to 7Number → if any digit is greater than 7
+//Input: tree    Output: eetr  
+//find duplicate character from string
+//find duplicate word from string
+//Java Program to Find the Largest and Smallest Word
+//Example Input: "Java is amazing" → Output: "is Java amazing"  make Is java amazing  Charatter.tolowercase(rev.charAt(0))+rev.substring(1);
+//amazing is Java
+String string2 = Arrays.stream(s.split("\\s+")).reduce((a,b)->b+" "+a).get();
+//slidingWIndows
+//Longest consectivete String s = "aaabbbaaa";   //3
+//String s="CORE"   [C, CO, COR, CORE, O, OR, ORE, R, RE, E]
+//String s="M@ !a^d am;   madam palindrome
+
+Java8 program
+================
+//frequency of character
+//frequency of a word
+//find second highest number or second lowest
+//findduplicatefromlistofInteger
+//sort the element ascending or descending order using java8
+//find the count of integer
+//find even or odd
+//find maximum or minimum element from list of integer
+//find first element from list of integer
+//check no is prime or not
+//find the prime number between the range
+//How do you merge two unsorted arrays into single sorted array using Java 8 streams?
+//How do you get three maximum numbers and three minimum numbers from the given list of integers?
+//20) Reverse an integer array
+//Write a program using stram api Employee salary is above 30000 create a employee object 
+emp.stream().filter(e->e.sal>3000).collect(collectors.toList());
+//reverse a list of integer
+String[][] data = {
+    {"Rama", "Math", "50"},
+    {"Rama", "Physics", "60"},
+    {"Rama", "English", "45"},
+    {"Hari", "Math", "70"},
+    {"Hari", "Physics", "65"},
+    {"Hari", "English", "85"},
+    {"Gita", "Math", "90"},
+    {"Gita", "Physics", "55"},
+    {"Gita", "English", "80"}
+};
+=============================================
+## Second Highest Salary in Each Department
+
+SELECT e.department, e.name, e.salary
+FROM Employees e
+WHERE e.salary = (
+    SELECT MAX(salary)
+    FROM Employees
+    WHERE department = e.department
+      AND salary < (
+          SELECT MAX(salary)
+          FROM Employees
+          WHERE department = e.department
+      )
+);
+
+
+##SQL:::male → female and female → male
+
+
+UPDATE Employees
+SET gender = CASE 
+                WHEN gender = 'male' THEN 'female'
+                WHEN gender = 'female' THEN 'male'
+             END;
+
+
+
+==========================
+Buy and Sell stock
+Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+Input: prices = [7,6,4,3,1]Output: 0 In this case, no transactions are done and the max profit = 0.
+Explanation: In this case, no transactions are done and the max profit = 0.
+int[] prices= {7,1,5,3,6,4};
+int minPrice = Integer.MAX_VALUE;
+System.out.println(minPrice);
+int maxProfit = 0; 
+for (int price : prices) {
+	if (price < minPrice) {
+		minPrice = price; 
+	System.out.println(minPrice);	
+	}
+else {
+	maxProfit = Math.max(maxProfit, price - minPrice); 
+	} }
+System.out.println(maxProfit);
+
+
+
+ int[] nums = {4,0,3,-7,0,11,9,0};
+int n=nums.length;
+int index=n-1;
+for (int i = n-1; i >=0; i--) {
+	if(nums[i]!=0) {
+		nums[index--]=nums[i];
+	}	
+}
+while(index>=0) {
+	nums[index--]=0;
+}
+ System.out.println(Arrays.toString(nums));
+
+
+	List<Integer> li = Arrays.asList(10,10,20,20,20,30,30);
+	Map<Integer, Long> collect = li.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+	 List<Integer> collect2 = collect.entrySet().stream().sorted((a,b)->b.getValue().compareTo(a.getValue())).limit(2).map(n->n.getKey()).collect(Collectors.toList());
+ System.out.println(collect2);
+
+* 
+for (int i = 0; i <=4; i++) {
+	for (int j = 0; j <=4; j++) {
+		if(i>=j) {
+			System.out.print("*");
+		}
+	
+	}
+	System.out.println();
+}
+
+List<Integer> li = Arrays.asList(10,15,8,49,1,12);
+	List<Integer> li2 = Arrays.asList(15,8,49,1,12);
+	List<Integer> li3= Arrays.asList(10,15,8);
+	int max=0;
+	for(int a:li) {
+		for(int b:li2) {
+			for(int c:li3) {
+				max=Math.max(max, a*b*c);
+			}	
+		}
+	}
+	
+
+	String s1="CORE";
+	ArrayList<String> lii = new ArrayList<>();
+	for (int i = 0; i < s1.length(); i++) {
+		for (int j = i+1; j < s1.length()+1; j++) {
+			String substring = s1.substring(i, j);
+			lii.add(substring);
+		}
+	}
+	System.out.println(lii);
+
+	int prices[] = {100, 180, 260, 310, 40, 535, 695};
+	int maxp=0;
+	for (int i = 1; i < prices.length; i++) {
+	if(prices[i]>prices[i-1]) {
+		maxp+=prices[i]-prices[i-1];
+	}
+	}System.out.println(maxp);
+	
+	
+	
+int[] bin=	{10, 20, 30, 40, 50};
+int k=30;
+int low=0;
+int high=bin.length-1;
+while(low<=high) {
+	int mid=(low+high)/2;
+	if(bin[mid]==k) {
+		System.out.println("Gotted:: "+bin[mid] );
+		break;
+	}
+	else if(bin[mid]<k) {
+		low=mid+1;
+	}else {
+		high=mid-1;
+	}
+}
+
+
+int[] arr = {-1, 3, -2, 4, -5, 6};
+int i=0;
+int j=arr.length-1;
+while(i<j) {
+	if(arr[i]<0) {
+		i++;
+	}else if(arr[j]>0) {
+		j--;
+	}else {
+		int temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+		i++;
+		j--;
+	}
+}
+for(int h:arr) {
+	System.out.print(h+" ");
+}
+
+//reverse string special char
+
+
+//List<Character> l = s.chars().mapToObj(c->(char)c).filter(Character::isLetter).collect(Collectors.toList());
+//Collections.reverse(l);
+//StringBuilder str = new StringBuilder();
+//Iterator<Character> itr = l.iterator();
+//s.chars().mapToObj(c->(char)c).forEach(c->{
+//	if(Character.isLetter(c)) {
+//		str.append(itr.next());
+//	}else {
+//		str.append(c);
+//	}
+//});
+
+//regex
+
+
+//reverse constant and not vowel
+List<Character> collect2 = s.chars().mapToObj(c->(char)c).filter(n->n=='a'||n=='e'||n=='i'||n=='o'||n=='u').collect(Collectors.toList());
+	Collections.reverse(collect2);
+	StringBuilder str = new StringBuilder();
+	Iterator<Character> itr = collect2.iterator();
+	s.chars().mapToObj(c->(char)c).forEach(n->{
+		if(n=='a'||n=='e'||n=='i'||n=='o'||n=='u') {
+			str.append(itr.next());
+		}else {
+			str.append(n);
+		}
+	});
+	System.out.println(str);
+	
+	//reverse vowel not constant
+n->n!='a'&& n!='e'&& n!='i'&& n!='o'&& n!='u'
+
+String s = "aaabbbaaa";
+int max = 1, count = 1;
+
+for (int i = 1; i < s.length(); i++) {
+    if (s.charAt(i) == s.charAt(i - 1)) {
+        count++;
+        max = Math.max(max, count);
+    } else {
+        count = 1;
+    }
+}
+
+System.out.println(max); // Output: 3
+bbbbb=5
+int max=0, left=0,k=2;
+	HashMap<Character, Integer> map=new HashMap<>();
+	for (int i = 0; i < s.length(); i++) {
+		
+		char c = s.charAt(i);
+		map.put(c, map.getOrDefault(c, 0)+1);
+		if(map.size()>k) {
+			char c1 = s.charAt(left);
+			map.put(c1, map.get(c1)-1);
+			if(map.get(c1)==0) {
+				map.remove(c1);
+			}
+			left++;
+		}		
+		max=Math.max(max, i-left+1);
+	}
+bbbbb=1
+int max=0,left=0;
+	Set<Character> seen=new HashSet<>();
+	for (int i = 0; i < s.length(); i++) {
+		if(!seen.add(s.charAt(i))) {
+			seen.add(s.charAt(left++));
+		}	
+		max=Math.max(max, i-left+1);
+	}
+	
+
+
+ String s = "000025STD099035XXX";
+
+        // Step 1: Regex to find 3 digits
+        Pattern p = Pattern.compile("\\d{3}");
+        Matcher m = p.matcher(s);
+
+        // Step 2: Collect matches into a list
+        List<Integer> numbers = new ArrayList<>();
+        while (m.find()) {
+            numbers.add(Integer.parseInt(m.group())); // convert text -> number
+        }
+
+        // Step 3: Take only first 3 numbers, then filter > 30
+        List<Integer> result = numbers.stream()
+                                      .limit(3)              // only first 3 numbers
+                                      .filter(n -> n > 30)   // keep > 30
+                                      .collect(Collectors.toList());
+
+        System.out.println(result);
+
+		
+		///regex with chqar
+		
+		String s="000025STD099035XXX";
+//Pattern compile = Pattern.compile("\\d{3}|[A-Za-z]{3}");
+Pattern compile = Pattern.compile("\\d{3}|[A-Za-z]{3}");
+System.out.println(compile);
+Matcher m = compile.matcher(s);
+System.out.println(m);
+
+List<String> result = new ArrayList<>();
+while (m.find()) {
+	String group = m.group();
+	String substring = group.substring(1,3);
+	System.out.println(substring);
+	result.add(substring);
+	}
+	System.out.println(result);
+List<String> collect = result.stream().filter(n->{
+	try {
+		Double.parseDouble(n);
+		return true;
+	}catch (Exception e) {
+return false;	}
+}).collect(Collectors.toList());
+	List<String> collect2 = collect.stream().filter(n->Integer.parseInt(n)>30).collect(Collectors.toList());
+	System.out.println(collect2);
+
+
+slot pattern
+String[] slots = {"🍒", "🍋", "🔔", "⭐", "💎"};
+    Random rand = new Random();
+System.out.println(rand.nextInt(slots.length));
+    // Spin and show result
+    String s1 = slots[rand.nextInt(slots.length)];
+    String s2 = slots[rand.nextInt(slots.length)];
+    String s3 = slots[rand.nextInt(slots.length)];
+
+    System.out.println("🎰 " + s1 + " | " + s2 + " | " + s3);
+
+    // Check win
+    if (s1.equals(s2) && s2.equals(s3)) {
+        System.out.println("🎉 You win!");
+    } else {
+        System.out.println("😞 Try again.");
+    }
+	
+1. Input: [1,2,[3,4],5,[6]]
+Output: [1,2,3,4,5,6]
+2. Input: [1, 3, 11, 5]
+Output: 33
+First connect 1+3 =4, 
+then 4+5 =9, 
+then 9+11 =20. 
+So total cost is 33 (4+9+20)
+3. Next palindrome program
+4. print even numbers which are greater than 10 using streams
+5.Question on spring boot annotations and spring
+Given a rotated sorted array, return the second minimum element from the array in O(log n) time complexity.
+Given a number, determine its type:
+Binary → if all digits are 0 or 1
+Octal → if all digits are less than or equal to 7
+Number → if any digit is greater than 7
+6.Merge two Treemaps with custom logic
+1) if a key is present in both the maps then sum the value
+2) if a key is present in only one map then retain the value as it is
+TreeMap1: {1=10, 2=20, 3=30}
+TreeMap2: {2=15, 3=25, 4=40}
+Output: {1=10, 2=35, 3=55, 4=40}
+7.Given a string s and an integer k, find the length of the longest substring that contains at most k
+distinct characters
+Input:
+String s = "eceba";
+int k = 2;
+Explanation:
+The substrings with at most 2 distinct characters are:
+"ec" (distinct characters: e, c)
+"ece" (distinct characters: e, c)
+"ec" (distinct characters: e, c)
+"eba" (distinct characters: e, b, a) → Invalid (has 3 distinct characters)
+The longest valid substring is "ece", which has a length of 3.
+8.Custom frequency sort of characters in a string
+Given a string, sort its character by frequency in descending order.
+If two characters have same frequency, maintain their order of first appearance.
+Input: tree      //freq LinkedHAshmap//  sort (a,b)-> b.getValue.compareTo(a.getVAlue)  // StringBuilder str.append(String.valueof(k).repeate(fre.get(k).intvalue)
+Output: eetr
+9.Sort words in a sentence based on their length.
+Example Input: "Java is amazing" → Output: "is Java amazing"
+10.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Write a Java program to print a sequence of numbers up to N using 3 threads.
+For example, if we want to print a sequence of numbers up to 10 then it’ll look like this:
+(count-1)%3+1==tid
+THREAD-1 : 1
+THREAD-2 : 2
+THREAD-3 : 3
+THREAD-1 : 4
+THREAD-2 : 5
+THREAD-3 : 6
+THREAD-1 : 7
+THREAD-2 : 8
+THREAD-3 : 9
+THREAD-1 : 10
+11.Create a shared google doc with your wissen id and share with the candidate to put their notes.
+Put the document link in the feedback. The same document can be used for multiple questions
+Table Name : Student
+Column : Name, Subject, Marks
+String[][] data = {
+    {"Rama", "Math", "50"},
+    {"Rama", "Physics", "60"},
+    {"Rama", "English", "45"},
+    {"Hari", "Math", "70"},
+    {"Hari", "Physics", "65"},
+    {"Hari", "English", "85"},
+    {"Gita", "Math", "90"},
+    {"Gita", "Physics", "55"},
+    {"Gita", "English", "80"}
+};
+Expected Output:
+Gita 225
+Hari 220
+Rama 155
+12.Longest Substring Without Repeating Characters
+Given a string s, find the length of the longest substring without repeating characters.
+Input: s = "abcabcbb"
+Output: 3
+Input: s = "bbbbb"
+Output: 1
+Input: s = "pwwkew"
+Output: 3
+13. (1,2,2,3,4,4,4,5,5) o/p: [1,2,3,4,5,null,null,null,null]
+14.Given a string, check if palindrome can be formed by rearranging its characters.
+Ex1. string: bangalore ans : false
+Ex2. string: abdybayd ans : true because string can be rearranged as abdyydba
+Expected time complexity - O(n)
+Space complexity - O(n)
+
+
+
+1 Tell me about your self and recent assignment
+2 What is the workflow of the project
+3 Which DB are you using for the project
+4 How are you storing the data and what is the table structure
+• Normalized tables
+• PK, FK relationships
+• Audit columns (created_date, created_by)
+
+5 Write the table names used in your application e.g. Master, process, recon, report etc.
+
+• tbl_client_master
+• tbl_requirement_master
+• tbl_user
+• tbl_address
+• tbl_transaction
+• tbl_audit_log
+
+6 How is master table related to your other tables e.g. if you have 4 tables tbl_ClientMaster, 1
+tbl_RequirementMaster, tbl_TA_Team, tbl_DP_Team etc. or how are the tables related to reach other
+• Master table holds reference data
+• Other tables refer using Foreign Key
+
+tbl_client_master (client_id PK)
+tbl_address (client_id FK)
+
+7 What is the type pof the PK column e.g. ClientID
+if candidates gives answer as Integer then Client will ask like how is the value of the primary key column generated, is it auto incremented or manually generated.
+
+ClientID integer long
+Genetered value= stragert.gentration.identity
+Autoincrement
+Sequence
+
+8 What is the relation within the above mentioned tables refer question 6 is it One to One or One to Many.
+• One-to-Many
+• One client → many addresses
+• Many-to-One
+• Many orders → one client
+
+9 Can you right some of the columns of some random table like address table, if I have address table and in address table I have clientcode, add1, add2, pincode columns so will this columns be available in tbl_clientmaster table also. tb1 pk
+Tb2 fk
+tbl_address:
+- address_id (PK)
+- client_id (FK)
+- address_line1
+- address_line2
+- pincode
+
+Note: So its based on the scenario will not be the same every time.
+Address data is not duplicated in master.
+
+10 When a record is created is there any history maintained or how can one identify that when this record was created
+Createdat
+Createdby
+11 How will you identify that how any applications were created today, e.g. suppose I have a requirement to find how many accounts were created on so and so date
+Date(createdat)
+12 how are you storing user details in your DB, login details of the user who are going to login to the application
+• Stored in tbl_user
+• Password stored in encrypted/hashed format
+• Using Spring Security
+
+13 name, type of the columns used for user table (user who logs into the table)
+14 are you using any framework for storing the user details
+15 Have you worked on Spring boot
+16 When you are using SpringMVC etc, in which form the data come to you
+Spring MVC
+• JSON
+• Form-data
+• Request Parameters
+
+17 Are you using restful API instead of SpringMVC for login purpose if yes then how, if no then how will you do it using Restful API
+Yes POST /api/auth/login
+{
+  "username": "riya",
+  "password": "****"
+}
+
+18 What are the components of Rest API, how will call it, can you write end point for the API
+
+• HTTP Method
+• URL
+• Headers
+• Request Body
+• Response
+
+19 Have you used Postman to call an API, in postman what all information will you provide to call the API
+
+• URL
+• HTTP Method
+• Headers
+• Body
+• Authorization
+
+20 What protocol will you be using for the API like HTTP/HTTPS and why HTTPS is more secure then HTTP
+
+
+HTTPS
+• HTTPS is secure
+• Uses SSL/TLS encryption
+• Prevents data tampering
+
+21 Is your Spring MVC application a Client Application or a Server Application
+Server Application
+22 How will the API request reach your server or the server where the solution is deployed/hosted
+ dns_ip_port through LB
+23 To locate a server what is required e.g. IP and Port and what is the use of port or what is its significance
+
+Ip identify server
+Port identify application
+24 Once your application is located using IP and port then what will happen directly the request will be sent to the server or is there anything that will happen
+No request is not sent
+ 
+Filters
+Interceptor
+Controller
+25 you will have a controller and you have received emailid and pwd in the request now how will you validate the data
+@validate in doa
+Service layer logic validation
+26 Write a query to fetch the user data suppose the table name is UserTable to validate the username and pwd received in your request
+SELECT *
+FROM UserTable
+WHERE username = ? AND password = ?;
+
+27 How is the password stored in the DB is it plain text or encrypted, what encryption techniques have you used to encrypt the data
+• Hashed, not plain text
+• BCrypt / AES (prefer BCrypt)
+
+
+28 If you have used AES encryption what are its advantages
+Fast
+Secured
+Symmetric
+29 Is Base64 encryption algorithm or encoding process
+Encoding process
+30 What message will you display on successful login
+Login successful
+31 How will you cum to know which API was requested by Which User, for e.g. a user will be doing many activities and there might be some API that will be called so how do you track the API requests for that particulate user
+Jwt token
+Audit log
+Request loggin
+
+32 SOLID priniciple in details
+33 Design pattern all - implement singleton design 
+34 in an array of +ve and -ve number make -ve numbers at start and + at end
+2 pointers
+int[] arr = {-1, 3, -2, 4, -5, 6};
+
+int i = 0;
+int j = arr.length - 1;
+
+while (i < j) {
+    if (arr[i] < 0) {
+        i++;
+    } else if (arr[j] > 0) {
+        j--;
+    } else {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        i++;
+        j--;
+    }
+}
+
+for (int num : arr) {
+    System.out.print(num + " ");
+}
+• Keep one pointer at start and one at end
+• If left side has positive and right side has negative, swap
+
+
+35 binary search algorithms
+int[] arr = {10, 20, 30, 40, 50};
+int key = 30;
+
+int low = 0;
+int high = arr.length - 1;
+
+while (low <= high) {
+    int mid = (low + high) / 2;
+
+    if (arr[mid] == key) {
+        System.out.println("Found at index " + mid);
+        break;
+    } else if (arr[mid] < key) {
+        low = mid + 1;
+    } else {
+        high = mid - 1;
+    }
+}
+
+36 Hashmap implementations
+37 Databases questions like limit and offset, sql query, delete vs truncate
+38 time complexity and space
+39 Q1. Given an array prices[] of size n denoting the cost of stock on each day, the task is to find the maximum total profit if we can buy and sell the stocks any number of times.
+Note: We can only sell a stock which we have bought earlier and we cannot hold multiple stocks on any day.
+Examples:
+Input: prices[] = {100, 180, 260, 310, 40, 535, 695}
+
+Solution:
+
+class Main {
+    public static void main(String[] args) {
+        int[] prices = {100, 180, 260, 310, 40, 535, 695};
+        System.out.println("Maximum Profit: " + getMaxProfit(prices));
+    }
+
+    public static int getMaxProfit(int[] prices) {
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            // If today's price is greater than yesterday's, add the profit
+            if (prices[i] > prices[i - 1]) {
+                maxProfit += prices[i] - prices[i - 1];
+            }
+        }
+        return maxProfit;
+    }
+}
+
+Q2.
+
+class ABC {
+    public static int ctr = 0;
+    public ABC(){
+        ctr++;
+    }
+    public static void main(String[] args)
+    {
+        ABC obj1 = new ABC();
+        ABC obj2 = new ABC();
+        ABC obj3 = new ABC();
+        System.out.println("Number of objects created are "
+                           + ABC.ctr);
+    }
+}
+
+What will we be output: 3
+40 Class A {
+
+static () {
+SOP("A");
+}
+
+(){
+SOP("B");
+}
+A(){
+SOP("C");
+}
+
+main(){
+A a= new A();
+
+}
+}
+
+A
+B
+C
+41 wait() and sleep() difference
+42 Given an array prices[] of size n denoting the cost of stock on each day, the task is to find the maximum total profit if we can buy and sell the stocks any number of times.
+Note: We can only sell a stock which we have bought earlier and we cannot hold multiple stocks on any day.
+Examples:
+ 
+Input: prices[] = {100, 180, 260, 310, 40, 535, 695}
+Output: 865
+Explanation: Buy the stock on day 0 and sell it on day 3 => 310 – 100 = 210
+                       Buy the stock on day 4 and sell it on day 6 => 695 – 40 = 655
+                       Maximum Profit  = 210 + 655 = 865
+43 Introduce Yourself
+44 Explain about your current project
+45 What is your roles and responsibilities in your current project
+46 What is garbage collection, purpose and how its work internally in details
+47 Type of memory area and explain in deeply like variable, method, class, object where we have to store and how in details
+48 What is Map and why it needs?
+49 Difference between map and list in details
+50 internal working of hashmap in details
+51 what is time complexity of map and list and how to calculate it?
+52 How to calculate index of any like 'xyz' key in hashmap and how to get value of key in that particular index.
+
+You cannot fetch by index, only by key.
+
+53 In hashmap how to allocate memory area for particular key value pair
+54 Which database have you work?
+55 Suppose In MySQL db in user table username and MobNo how to get MobNo for particular user?
+SELECT MobNo
+FROM user
+WHERE username = 'Riya';
+
+56 Suppose Consider 10Lacs Records then how to getting record within a second
+• Indexing
+• Pagination
+• Caching
+• Query optimization
+
+57 How to store key in bucket location in hashmap internally
+58 Code for JSON validator
+ObjectMapper mapper = new ObjectMapper();
+mapper.readTree(jsonString);
+
+59 Code for to find 2nd largest No from array
+60 Regex Pattern
+61 Find the second largest element in the list?
+62 When user try access with another user token then what will be the payload?
+401 unauthorized acces
+403 acess denied
+
+63 What is encryption? Types
+Plain text- cipher text
+
+64 Table names used in your recent project
+65 checked and unchecked exception?
+66 topics in kafka?
+67 Find the second largest element in the list?
+68 When user try access with another user token then what will be the payload?
+401
+403
+69 What is encryption? types
+• Symmetric (AES)
+• Asymmetric (RSA)
+• Hashing (BCrypt)
+
+70 Table names used in your recent project
+71 checked and unchecked exception?
+72 topics in kafka?
+73 project architecture explain in brief?
+
+
+
+
+using method chaining concept find divisible by 2 and multiply by 3
+
+how to manage cache in spring boot application
+@EnableCache 
+@SpringbootApplication
+
+
+@Service
+@Cacheable
+@Cacheevict
+
+write query to fetch first 35 records cust data from table using jpa syntax
+@Query(select * from customer where order by desc limit 35);
+
+write method in spring boot app for creating jwt token
+
+how to manage crud in spring boot app
+
+how to declare bean scope as a prototype
+
+microservice design pattern
+
+spring cloud
