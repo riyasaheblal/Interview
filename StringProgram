@@ -38,9 +38,19 @@ String string2 = Arrays.stream(s.split("\\s+")).reduce((a,b)->b+" "+a).get();
 
 private static void str() {
 
+
+//Example Input: "Java is amazing" → Output: "is Java amazing"  make Is java amazing  Charatter.tolowercase(rev.charAt(0))+rev.substring(1);
+		//amazing is Java
+		String s="Java is amazing";
+        //sort by length
+		String collect = Arrays.stream(s.split("\\s+")).sorted(Comparator.comparing(String::length)).collect(Collectors.joining(" "));
+       //make first letter Upper rest similar
+		String substring =collect.toUpperCase().charAt(0) +collect.substring(1, collect.length());
+        //reverse of word
+		 String str = Arrays.stream(s.split("\\s+")).reduce((a,b)->b+" "+a).get();
+		System.out.println(str);
+
 		//sliding windows
-		
-		
 //		.Longest Substring Without Repeating Characters
 //		Given a string s, find the length of the longest substring without repeating characters.
 //		Input: s = "abcabcbb"
